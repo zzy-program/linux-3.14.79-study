@@ -50,6 +50,12 @@ static void drop_slab(void)
 	} while (nr_objects > 10);
 }
 
+/*
+drop cache => /proc/sys/vm/drop_caches
+1. 释放 page cache
+2. 释放 slab
+3. 释放所有
+*/
 int drop_caches_sysctl_handler(ctl_table *table, int write,
 	void __user *buffer, size_t *length, loff_t *ppos)
 {
