@@ -1,0 +1,5 @@
+export ROOT_BIN=/home/zzy/sda6/bin/gcc/gcc-linaro-7.3.1-2018.05-i686_arm-eabi/bin
+make ARCH=arm CROSS_COMPILE=$ROOT_BIN/arm-eabi- O=../out_3.14.79-study vexpress_defconfig
+make ARCH=arm CROSS_COMPILE=$ROOT_BIN/arm-eabi- O=../out_3.14.79-study -j4 zImage
+
+/home/zzy/sda6/bin/qemu/qemu-2.12.0/bin/qemu-system-arm -M vexpress-a9 -m 512M -kernel ../out_3.14.79-study/arch/arm/boot/zImage -nographic -append "root=/dev/mmcblk0 console=ttyAMA0" -sd ../resource/rootfs_arm32/arm32_rootfs.ext4
