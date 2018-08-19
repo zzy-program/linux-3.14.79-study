@@ -477,7 +477,7 @@ static void __init mm_init(void)
 }
 
 /*
-这里是内核c代码入口点
+这里是内核c代码入口点1
 */
 asmlinkage void __init start_kernel(void)
 {
